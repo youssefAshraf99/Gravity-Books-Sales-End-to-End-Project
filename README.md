@@ -79,13 +79,13 @@ To explore and replicate the project, follow these steps:
     ![ETL Fact Table Full Load](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/ETL%20Fact%20Table%20Full%20Load.PNG)
 
 ## Analysis Phase
-To explore the analysis phase, refer to the [Analysis folder](/Analysis).
+To explore the analysis phase
 
 This project harnesses the power of SQL Server Analysis Services (SSAS) for advanced data modeling and analysis. In particular, we've employed the Tabular mode of OLAP (Online Analytical Processing) to create efficient data models that cater to our analytical needs.
 
 - **Tabular Mode:** We've chosen to work with the Tabular mode in SSAS. This mode specializes in constructing tabular data models, which provide a streamlined, relational view of the data. It excels in scenarios where data retrieval speed and simplicity are top priorities.
 
-    ![SSAS OLAP](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Cube%20Browsing%20OLAP.PNG)
+    ![SSAS OLAP](https://github.com/youssefAshraf99/Gravity-Books-Sales-End-to-End-Project/blob/master/screen/Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.012.png)
 
 
 ## Reporting Phase
