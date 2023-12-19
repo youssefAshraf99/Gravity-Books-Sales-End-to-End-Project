@@ -1,188 +1,132 @@
+# Gravity Books Sales End-to-End Project
+![Logo](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/gravity%20logo.png)
+## Table of Contents
+- [Introduction](#introduction)
+- [Project Phases](#project-phases)
+- [Data Source](#data-source)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [ETL Phase](#etl-phase)
+- [Analysis Phase](#analysis-phase)
+- [Reporting Phase](#reporting-phase)
+- [Contributing](#contributing)
+- [License](#license)
 
+## Introduction
+Welcome to the Gravity Books Sales End-to-End Project repository. This project is an exemplary demonstration of a complete data warehousing solution, encompassing the Extract, Transform, Load (ETL) phase, analysis phase with SQL Server Analysis Services (SSAS), and reporting phase using Pivot Table and Power BI.
 
+## Project Phases
+1. **ETL (Extract, Transform, Load)**: In this phase, data is extracted from a transactional database called "Gravity Book Sales," transformed to meet data warehousing requirements, and loaded into a structured data warehouse.
+2. **Analysis**: The data is modeled and structured for efficient querying and analysis using SQL Server Analysis Services (SSAS).
+3. **Reporting**: Interactive reports and visualizations are created using Pivot Table in Excel and Power BI, allowing end-users to derive insights from the data.
 
+## Data Source
+The source dataset for this project is the "Gravity Book Sales" database, which can be found [here](https://github.com/bbrumm/databasestar/tree/main/sample_databases/sample_db_gravity/gravity_sqlserver). This transactional database serves as the foundation for the end-to-end project.
 
+## Technologies Used
+- SQL Server Integration Services (SSIS)
+- SQL Server Analysis Services (SSAS)
+- Pivot Table (Excel)
+- Power BI
 
+## Getting Started
+To explore and replicate the project, follow these steps:
+1. Clone this repository to your local machine.
+2. [Download and install SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) if not already installed.
+3. Follow the instructions in the respective folders for each project phase (ETL, Analysis, Reporting) to set up and execute the code.
 
+## ETL Phase
 
 
-Gravity Bookstore is a database for a fictional bookstore called that captures information about books, customers, and sales.
+* DDL statements of table creation and the DWH Schema
+  
+  * Customer Dimension
+    
+    ![DDL Customer Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Customer%20Dim.PNG)
+    
+  * Book Dimension
+    
+    ![DDL Book Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Book%20Dim.PNG)
+    
+   * Shipping Dimension
+     
+    ![DDL Shipping Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Shipping%20Dim.PNG)
+  
+   * Date Dimension
+     
+    ![DDL Date Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Date%20Dim.PNG)
 
-Please download the SQL files from the link below and run them in a new database named ‘gravity\_books’ in your local SQL Server DB engine:
 
-[databasestar/sample_databases/sample_db_gravity/gravity_sqlserver · GitHub](https://github.com/bbrumm/databasestar/tree/main/sample_databases/sample_db_gravity/gravity_sqlserver)
 
-ERD of ‘gravity\_books’ transactional database:
 
-![erd_gravity](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.004.png)
 
-Tables description:
+* Detailed instructions for the ETL phase can be found in the [ETL folder](/ETL).
 
-- **book**: a list of all books available in the store.
-- **book\_author**: stores the authors for each book, which is a many-to-many relationship.
-- **author**: a list of all authors.
-- **book\_language**: a list of possible languages of books.
-- **publisher**: a list of publishers for books.
-- **customer**: a list of the customers of the Gravity Bookstore.
-- **customer\_address**: a list of addresses for customers, as a customer can have more than one address, and an address has more than one customer.
-- **address\_status**: a list of statuses for an address, because addresses can be current or old.
-- **address**: a list of addresses in the system.
-- **country**: a list of countries that addresses are in.
-- **cust\_order**: a list of orders placed by customers.
-- **order\_line**: a list of books that are a part of each order.
-- **shipping\_method**: the possible shipping methods for an order.
-- **order\_history**: the history of an order, such as ordered, cancelled, delivered.
-- **order\_status**: the possible statuses of an order.
+   * Customer Dimension
+   
+    ![ETL Customer Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/ETL%20Customer%20Dim.PNG)
 
+   * Book Dimension
+   
+    ![ETL Book Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/ETL%20Book%20Dim.PNG)
 
-<a name="_toc148760614"></a>Requirements
+   * Shipping Dimension
+   
+    ![ETL Shipping Dim](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/ETL%20Shipping%20Dim.PNG)
 
-1. Model and develop ‘gravity\_books\_dwh’ Data Warehouse **figure1**
-   1. Please provide the DDL statements of table creation and a screenshot from the DWH ERD.(
+   * Fact Table Full Load
+   
+    ![ETL Fact Table Full Load](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/ETL%20Fact%20Table%20Full%20Load.PNG)
 
-      ![](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.005.png)
+## Analysis Phase
+To explore the analysis phase, refer to the [Analysis folder](/Analysis).
 
-*Figure 1**
+This project harnesses the power of SQL Server Analysis Services (SSAS) for advanced data modeling and analysis. In particular, we've employed the Tabular mode of OLAP (Online Analytical Processing) to create efficient data models that cater to our analytical needs.
 
-1. Define which approach (star schema, snowflake) of data warehouse used in your solution, and why.
+- **Tabular Mode:** We've chosen to work with the Tabular mode in SSAS. This mode specializes in constructing tabular data models, which provide a streamlined, relational view of the data. It excels in scenarios where data retrieval speed and simplicity are top priorities.
 
-   I have used a star schema approach for the data warehouse. A star schema is a simple and efficient way of organizing data for analysis and reporting. It consists of a single fact table that contains the measures of interest and multiple dimension tables that describe the attributes of the fact table. Thate what I do one fact table **order\_fact** and all dimension tables this  is a start schema **figure2**
+    ![SSAS OLAP](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Cube%20Browsing%20OLAP.PNG)
 
-![A screenshot of a computer
 
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.006.png)
+## Reporting Phase
+For reporting and visualization using Pivot Table and Power BI, visit the [Reporting folder](/Reporting).
 
-*Figure 2**
+The reporting phase in this project is designed to provide users with the flexibility and tools to gain insights from the data. We've incorporated two distinct types of reporting to cater to different user needs:
 
-It reduces the number of joins required to query the data, which improves performance and simplifies queries.
+#### 1. Pivot Table Reporting
 
-It avoids redundancy and inconsistency in the dimension tables, which improves data quality and integrity.
+Pivot tables are a well-known and versatile tool within Microsoft Excel, allowing users to analyze, aggregate, and visualize data in a tabular format. This method of reporting is particularly useful when you need to perform basic ad-hoc analysis or create custom reports directly in Excel. With pivot tables, users can slice and dice the data to answer specific questions and gain insights quickly.
 
-It is easy to understand and maintain by business users and analysts.
+* Total Quantity, Total Price, Total Shipping Cost, Total Revenue of the 12 months over all years
 
-1. Define a method to check and maintain the integrity between the fact and the dimensions (SQL).
+![Pivot_Table_Insight_1](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%201.PNG)
 
+* The Best-selling language books
+    
+![Pivot_Table_Insight_2](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%202.PNG)
 
+* Total Quantity, Total Price, Total Shipping Cost, Total Revenue of all shipping methods for countries.
 
+![Pivot_Table_Insight_3](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%203.PNG)
 
+* Total Price of all Years
+  
+![Pivot_Table_Insight_4](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%204.PNG)
 
 
 
+#### 2. Power BI Dashboard Reporting
 
+Power BI is a powerful business intelligence tool that delivers interactive and dynamic reports, dashboards, and data visualizations. It is designed for self-service reporting, enabling users to explore data intuitively, create compelling visualizations, and share insights with others. Power BI reports are ideal for more in-depth analysis, interactive dashboards, and data-driven storytelling.
 
+These two types of reporting options provide a spectrum of reporting capabilities to suit various user preferences and needs. Whether you prefer the simplicity and familiarity of pivot tables or the dynamic and interactive experience of Power BI, this project offers a range of reporting tools to empower you to extract valuable insights from the data.
 
-1. Please, add a date dimension to the system to track the historical changes.
+![PowerBIDashboard](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Gravity%20Book%20Sales%20Power%20BI%20Dashboard.PNG)
 
-   ![A screenshot of a computer
 
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.007.png)
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1. Design an SSIS project to populate the data from ‘gravity\_books’ transactional database into the new target data warehouse ‘gravity\_books\_dwh’.
-
-   Figure 3 show the DWH empty not transfer Data from source gravity\_books to destination gravity\_books\_DWH
-
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.008.png)
-
-Data Transfer successfully from source to destination In Figure4 
-
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.009.png)
-
-
-All Dimensions And Fact Tables The Solution In SSIS
-
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.010.png)
-
-
-
-
-1. Design an SSAS project (Tabular mode) and provide the main deliverables of the cube browsing.
-
-   Loade Columns  Correctly from DWH
-
-![A computer screen shot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.011.png)
-
-
-Model\_dim
-
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.012.png)
-
-Before Deploy SSAS Project
-
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.013.png)
-
-After Deploy SSAS Tabular MODE
-
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.014.png)
-
-
-1. Using either PowerPivot in Excel or Power BI Desktop, create BI self-service reporting 
-
-   for exploring gravity books OLAP cube.
-
-   1. Please use the self-service canvas to explore the data and get business insights from it.
-   1. Create sample analytical reports and one dashboard.
-
-      ![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.015.png)![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.016.png)
-
-- Please provide screenshots from the output of each point above:
-- Compress the entire solution files:
-  - DWH DDL statements (format . sql)
-  - ETL SSIS project
-  - OLAP SSAS project
-  - ` `PowerPivot Excel or Power BI (format . xlsx or .pbix)
-2
-
-
-[^1]: ` `*Hint: certificate issuing may take up to 24 hours after assessment completion until you have it via email.*
+Feel free to adapt and expand upon this template to provide all the necessary details, instructions, and context for your "Gravity Books Sales End-to-End Project" repository. An informative README.md helps users understand and engage with your project effectively.
