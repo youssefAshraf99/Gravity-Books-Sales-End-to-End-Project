@@ -1,0 +1,498 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/26/2023 5:44:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-HEKF7O5"
+  DTS:CreatorName="DESKTOP-HEKF7O5\future"
+  DTS:DTSID="{DC711123-8F98-42EA-B62E-0DBFFF7173D2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{B14CF9BD-2537-4878-8453-AF6D630F8B9C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2DCCCCD9-608E-41A2-9664-EE527FA9628C}"
+      DTS:ObjectName="DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-HEKF7O5\INTEGRATIONDATA;Initial Catalog=gravity_books;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{2DCCCCD9-608E-41A2-9664-EE527FA9628C}DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books_dwh]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{47E2D207-5E33-4172-A95A-BFE6EC3415BD}"
+      DTS:ObjectName="DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books_dwh">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-HEKF7O5\INTEGRATIONDATA;Initial Catalog=gravity_books_dwh;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{47E2D207-5E33-4172-A95A-BFE6EC3415BD}DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books_dwh;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6d04233d-ac98-47ae-a15b-dafc1458e3a9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Customer_Dim"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5ab20096-03fa-4dd3-98c1-6b82d2395d9c}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Customer_Dim"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Customer_Dim\Insert Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[customer_dim]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Customer_Dim\Insert Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books_dwh]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books_dwh]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="350"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[_ValidFrom]"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                          cachedDataType="i4"
+                          cachedName="customer_id"
+                          externalMetadataColumnId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                          dataType="i4"
+                          name="customer_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                          dataType="i4"
+                          name="customer_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="255"
+                          name="customer_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_email]"
+                          codePage="1256"
+                          dataType="str"
+                          length="255"
+                          name="customer_email" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[_ValidFrom]"
+                          dataType="dbTimeStamp"
+                          name="_ValidFrom" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[_ValidTo]"
+                          dataType="dbTimeStamp"
+                          name="_ValidTo" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Customer_Dim\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Customer_Dim\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Customer_Dim\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source 1"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books1]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-HEKF7O5\INTEGRATIONDATA.gravity_books1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[customer_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[customer_id]"
+                          name="customer_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[first_name]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                          length="200"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[first_name]"
+                          name="first_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[last_name]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                          length="200"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[last_name]"
+                          name="last_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[email]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                          length="350"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[email]"
+                          name="email"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                          dataType="i4"
+                          name="customer_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="200"
+                          name="first_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="200"
+                          name="last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                          codePage="1256"
+                          dataType="str"
+                          length="350"
+                          name="email" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                          name="customer_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                          name="first_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                          name="last_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[email]"
+                          codePage="1256"
+                          dataType="str"
+                          length="350"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[email]"
+                          name="email" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Customer_Dim.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Customer_Dim\Insert Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Customer_Dim\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Sequence Container\Customer_Dim"
+          TopLeft="153.76428638902,5.93235271578999" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="652.8,234.4"
+          Size="652.8,277.6"
+          Id="Package\Sequence Container"
+          TopLeft="93.0357143560386,28.4558823805907" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Customer_Dim">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Sequence Container\Customer_Dim\OLE DB Source 1"
+          TopLeft="151.7,5.49999999999995" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\Customer_Dim\Insert Destination"
+          TopLeft="144.699999989356,147.864706291902" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Customer_Dim.Paths[OLE DB Source Output]"
+          TopLeft="228.399999994678,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100.764706291902"
+              Start="0,0"
+              End="0,93.2647062919018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93.2647062919018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Customer_Dim\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Customer_Dim\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

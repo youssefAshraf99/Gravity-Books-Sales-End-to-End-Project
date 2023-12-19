@@ -1,0 +1,590 @@
+{
+  "name": "TabularProject2_gravity",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "DESKTOP-HEKF7O5\\INSTANT_TABULAR",
+            "database": "gravity_books_dwh"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "SQL",
+          "path": "desktop-hekf7o5\\instant_tabular;gravity_books_dwh",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "address_dim",
+        "columns": [
+          {
+            "name": "address_key",
+            "dataType": "int64",
+            "sourceColumn": "address_key"
+          },
+          {
+            "name": "address_id",
+            "dataType": "int64",
+            "sourceColumn": "address_id"
+          },
+          {
+            "name": "address_line_1",
+            "dataType": "string",
+            "sourceColumn": "address_line_1"
+          },
+          {
+            "name": "address_line_2",
+            "dataType": "string",
+            "sourceColumn": "address_line_2"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city"
+          },
+          {
+            "name": "state",
+            "dataType": "string",
+            "sourceColumn": "state"
+          },
+          {
+            "name": "zip_code",
+            "dataType": "string",
+            "sourceColumn": "zip_code"
+          },
+          {
+            "name": "country_id",
+            "dataType": "int64",
+            "sourceColumn": "country_id"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_address_dim = Source{[Schema=\"dbo\",Item=\"address_dim\"]}[Data]",
+                "in",
+                "    dbo_address_dim"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "author_dim",
+        "columns": [
+          {
+            "name": "author_key",
+            "dataType": "int64",
+            "sourceColumn": "author_key"
+          },
+          {
+            "name": "author_id",
+            "dataType": "int64",
+            "sourceColumn": "author_id"
+          },
+          {
+            "name": "author_name",
+            "dataType": "string",
+            "sourceColumn": "author_name"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_author_dim = Source{[Schema=\"dbo\",Item=\"author_dim\"]}[Data]",
+                "in",
+                "    dbo_author_dim"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "book_dim",
+        "columns": [
+          {
+            "name": "book_key",
+            "dataType": "int64",
+            "sourceColumn": "book_key"
+          },
+          {
+            "name": "book_id",
+            "dataType": "int64",
+            "sourceColumn": "book_id"
+          },
+          {
+            "name": "book_title",
+            "dataType": "string",
+            "sourceColumn": "book_title"
+          },
+          {
+            "name": "book_price",
+            "dataType": "double",
+            "sourceColumn": "book_price"
+          },
+          {
+            "name": "publisher_id",
+            "dataType": "int64",
+            "sourceColumn": "publisher_id"
+          },
+          {
+            "name": "language_id",
+            "dataType": "int64",
+            "sourceColumn": "language_id"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_book_dim = Source{[Schema=\"dbo\",Item=\"book_dim\"]}[Data]",
+                "in",
+                "    dbo_book_dim"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "customer_dim",
+        "columns": [
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "sourceColumn": "customer_key"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id"
+          },
+          {
+            "name": "customer_name",
+            "dataType": "string",
+            "sourceColumn": "customer_name"
+          },
+          {
+            "name": "customer_email",
+            "dataType": "string",
+            "sourceColumn": "customer_email"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_customer_dim = Source{[Schema=\"dbo\",Item=\"customer_dim\"]}[Data]",
+                "in",
+                "    dbo_customer_dim"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateSK",
+            "dataType": "int64",
+            "sourceColumn": "DateSK"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Day",
+            "dataType": "string",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "DaySuffix",
+            "dataType": "string",
+            "sourceColumn": "DaySuffix"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeek"
+          },
+          {
+            "name": "DOWInMonth",
+            "dataType": "int64",
+            "sourceColumn": "DOWInMonth"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayOfYear"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfMonth"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName"
+          },
+          {
+            "name": "Year",
+            "dataType": "string",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "StandardDate",
+            "dataType": "string",
+            "sourceColumn": "StandardDate"
+          },
+          {
+            "name": "HolidayText",
+            "dataType": "string",
+            "sourceColumn": "HolidayText"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "order_fact",
+        "columns": [
+          {
+            "name": "order_key",
+            "dataType": "int64",
+            "sourceColumn": "order_key"
+          },
+          {
+            "name": "order_id",
+            "dataType": "int64",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "order_date"
+          },
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "sourceColumn": "customer_key"
+          },
+          {
+            "name": "address_key",
+            "dataType": "int64",
+            "sourceColumn": "address_key"
+          },
+          {
+            "name": "shipping_method_key",
+            "dataType": "int64",
+            "sourceColumn": "shipping_method_key"
+          },
+          {
+            "name": "order_status_key",
+            "dataType": "int64",
+            "sourceColumn": "order_status_key"
+          },
+          {
+            "name": "book_key",
+            "dataType": "int64",
+            "sourceColumn": "book_key"
+          },
+          {
+            "name": "author_key",
+            "dataType": "int64",
+            "sourceColumn": "author_key"
+          },
+          {
+            "name": "quantity",
+            "dataType": "int64",
+            "sourceColumn": "quantity"
+          },
+          {
+            "name": "dim_Date",
+            "dataType": "int64",
+            "sourceColumn": "dim_Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_order_fact = Source{[Schema=\"dbo\",Item=\"order_fact\"]}[Data]",
+                "in",
+                "    dbo_order_fact"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "order_status_dim",
+        "columns": [
+          {
+            "name": "order_status_key",
+            "dataType": "int64",
+            "sourceColumn": "order_status_key"
+          },
+          {
+            "name": "order_status_id",
+            "dataType": "int64",
+            "sourceColumn": "order_status_id"
+          },
+          {
+            "name": "order_status_name",
+            "dataType": "string",
+            "sourceColumn": "order_status_name"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_order_status_dim = Source{[Schema=\"dbo\",Item=\"order_status_dim\"]}[Data]",
+                "in",
+                "    dbo_order_status_dim"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "shipping_method_dim",
+        "columns": [
+          {
+            "name": "shipping_method_key",
+            "dataType": "int64",
+            "sourceColumn": "shipping_method_key"
+          },
+          {
+            "name": "shipping_method_id",
+            "dataType": "int64",
+            "sourceColumn": "shipping_method_id"
+          },
+          {
+            "name": "shipping_method_name",
+            "dataType": "string",
+            "sourceColumn": "shipping_method_name"
+          },
+          {
+            "name": "shipping_cost",
+            "dataType": "double",
+            "sourceColumn": "shipping_cost"
+          },
+          {
+            "name": "_ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidFrom"
+          },
+          {
+            "name": "_ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "_ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-HEKF7O5\\INSTANT_TABULAR;gravity_books_dwh\",",
+                "    dbo_shipping_method_dim = Source{[Schema=\"dbo\",Item=\"shipping_method_dim\"]}[Data]",
+                "in",
+                "    dbo_shipping_method_dim"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "58f124ee-8acf-4e45-b4a4-b4fd00aad007",
+        "fromTable": "order_fact",
+        "fromColumn": "address_key",
+        "toTable": "address_dim",
+        "toColumn": "address_key"
+      },
+      {
+        "name": "367e6208-d247-49d0-b5a1-20aac81edcb3",
+        "fromTable": "order_fact",
+        "fromColumn": "author_key",
+        "toTable": "author_dim",
+        "toColumn": "author_key"
+      },
+      {
+        "name": "a967d52f-2b5e-4c1e-af32-dd6832149db6",
+        "fromTable": "order_fact",
+        "fromColumn": "book_key",
+        "toTable": "book_dim",
+        "toColumn": "book_key"
+      },
+      {
+        "name": "5aad3175-a45f-482c-bda2-47d4d67679f7",
+        "fromTable": "order_fact",
+        "fromColumn": "customer_key",
+        "toTable": "customer_dim",
+        "toColumn": "customer_key"
+      },
+      {
+        "name": "6d8220de-9269-4b3a-8d66-45c72afc4d86",
+        "fromTable": "order_fact",
+        "fromColumn": "dim_Date",
+        "toTable": "DimDate",
+        "toColumn": "DateSK"
+      },
+      {
+        "name": "bb7e4c49-c11f-47d3-8513-e1363a8a65b6",
+        "fromTable": "order_fact",
+        "fromColumn": "order_status_key",
+        "toTable": "order_status_dim",
+        "toColumn": "order_status_key"
+      },
+      {
+        "name": "3030dfb7-88b5-4254-a96a-17eaa82e39b7",
+        "fromTable": "order_fact",
+        "fromColumn": "shipping_method_key",
+        "toTable": "shipping_method_dim",
+        "toColumn": "shipping_method_key"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  }
+}

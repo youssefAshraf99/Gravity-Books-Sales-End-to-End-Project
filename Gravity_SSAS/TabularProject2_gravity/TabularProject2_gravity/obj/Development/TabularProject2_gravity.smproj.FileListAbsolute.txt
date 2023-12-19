@@ -1,0 +1,8 @@
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\bin\Model.asdatabase
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\bin\Model.deploymenttargets
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\bin\Model.deploymentoptions
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\obj\Development\TabularProject2_gravity.smproj.AssemblyReference.cache
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\obj\Development\TabularProject2_gravity.smproj.CoreCompileInputs.cache
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\obj\Development\Model.asdatabase
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\obj\Development\Model.deploymentoptions
+F:\youssef_bio\BIO_FCI\Career\ITI ALEX DATA ENGINEERING\Data Warehouse\exam\Gravity_SSAS\TabularProject2_gravity\TabularProject2_gravity\obj\Development\Model.deploymenttargets
