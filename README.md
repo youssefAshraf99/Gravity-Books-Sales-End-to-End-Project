@@ -89,21 +89,10 @@ This project harnesses the power of SQL Server Analysis Services (SSAS) for adva
 
 
 ## Reporting Phase
-For reporting and visualization using Pivot Table and Power BI, visit the [Reporting folder](/Reporting).
+For reporting and visualization using  Power BI
 
 The reporting phase in this project is designed to provide users with the flexibility and tools to gain insights from the data. We've incorporated two distinct types of reporting to cater to different user needs:
 
-#### 1. Pivot Table Reporting
-
-Pivot tables are a well-known and versatile tool within Microsoft Excel, allowing users to analyze, aggregate, and visualize data in a tabular format. This method of reporting is particularly useful when you need to perform basic ad-hoc analysis or create custom reports directly in Excel. With pivot tables, users can slice and dice the data to answer specific questions and gain insights quickly.
-
-* Total Quantity, Total Price, Total Shipping Cost, Total Revenue of the 12 months over all years
-
-![Pivot_Table_Insight_1](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%201.PNG)
-
-* The Best-selling language books
-    
-![Pivot_Table_Insight_2](http
 
 
 
