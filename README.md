@@ -103,30 +103,18 @@ Pivot tables are a well-known and versatile tool within Microsoft Excel, allowin
 
 * The Best-selling language books
     
-![Pivot_Table_Insight_2](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%202.PNG)
-
-* Total Quantity, Total Price, Total Shipping Cost, Total Revenue of all shipping methods for countries.
-
-![Pivot_Table_Insight_3](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%203.PNG)
-
-* Total Price of all Years
-  
-![Pivot_Table_Insight_4](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/PP%20Insight%204.PNG)
+![Pivot_Table_Insight_2](http
 
 
 
-#### 2. Power BI Dashboard Reporting
+####  Power BI Dashboard Reporting
 
 Power BI is a powerful business intelligence tool that delivers interactive and dynamic reports, dashboards, and data visualizations. It is designed for self-service reporting, enabling users to explore data intuitively, create compelling visualizations, and share insights with others. Power BI reports are ideal for more in-depth analysis, interactive dashboards, and data-driven storytelling.
 
 These two types of reporting options provide a spectrum of reporting capabilities to suit various user preferences and needs. Whether you prefer the simplicity and familiarity of pivot tables or the dynamic and interactive experience of Power BI, this project offers a range of reporting tools to empower you to extract valuable insights from the data.
 
-![PowerBIDashboard](https://github.com/3amory99/Gravity-Books-Sales-End-to-End-Project/blob/master/Project%20Screenshots/Gravity%20Book%20Sales%20Power%20BI%20Dashboard.PNG)
+![PowerBIDashboard](https://github.com/youssefAshraf99/Gravity-Books-Sales-End-to-End-Project/blob/master/screen/Aspose.Words.701e3a42-106f-4012-95e2-6ed40b822364.016.png)
 
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 Feel free to adapt and expand upon this template to provide all the necessary details, instructions, and context for your "Gravity Books Sales End-to-End Project" repository. An informative README.md helps users understand and engage with your project effectively.
